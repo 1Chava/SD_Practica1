@@ -2,6 +2,7 @@
 ## Materia: Sistemas Distribuidos
 ## Alumnos:  
     Cortés Francisco Juan Salvador 
+    Esquivel Sánchez Luis Rodrigo
     Jurado Cortés Christian Jonathan
     Loyola Diaz Jennifer Michelle
 ##
