@@ -1,6 +1,8 @@
 # Practica 1: Cuatro Relojes Independientes
 ## Materia: Sistemas Distribuidos
 ## Alumnos: Cortés Francisco Juan Salvador
+##          Esquivel Sánchez Luis rodrigo
+            
 ### Fecha de asignación: 22/08/18
 ### Lenguaje de programación: A decidir
 ### Fecha de termino: En progreso
