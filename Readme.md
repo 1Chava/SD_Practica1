@@ -7,7 +7,7 @@
     Loyola Diaz Jennifer Michelle
 ##
 ### Fecha de asignación: 22/08/18
-### Lenguaje de programación: A decidir
+### Lenguaje de programación: Java
 ### Fecha de termino: En progreso
 
 ### Objetivo de la práctica 
