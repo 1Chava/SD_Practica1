@@ -5,6 +5,8 @@
  */
 package Modelo;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -21,15 +23,22 @@ public class Reloj {
     private int segundos;
     private Calendar calendario;
     private TimeZone zonahoraria;
+    private String formato;
+    private DateFormat dateFormat;
+    private String currentTime;
     private String[] zonas = {"America/Mexico_City", "Europe/London", "Asia/Tokyo", "Atlantic/Reykjavik"};
     
     public Reloj(int zona) {
         this.zonahoraria = TimeZone.getTimeZone(zonas[zona]);
-        this.calendario = new GregorianCalendar();
-        this.calendario.setTimeZone(this.zonahoraria);
-        this.horas = this.calendario.get(Calendar.HOUR);
-        this.minutos = this.calendario.get(Calendar.MINUTE);
-        this.segundos = this.calendario.get(Calendar.SECOND);
+        this.formato = "HH:mm:ss";
+        this.dateFormat = new SimpleDateFormat(this.formato);
+        this.calendario = Calendar.getInstance(this.zonahoraria);
+        this.dateFormat.setTimeZone(calendario.getTimeZone());
+        this.currentTime = dateFormat.format(calendario.getTime());
+        String[] time = this.currentTime.split ( ":" );
+        this.horas = Integer.parseInt(time[0].trim());
+        this.minutos = Integer.parseInt(time[1].trim());
+        this.segundos = Integer.parseInt(time[2].trim());
     }
 
     public int getHoras() {
@@ -58,7 +67,21 @@ public class Reloj {
 
     @Override
     public String toString() {
-        return "Reloj{" + "horas=" + horas + ", minutos=" + minutos + ", segundos=" + segundos + '}';
+        return horas + ":" + minutos + ":" + segundos;
+    }
+    
+    public void addSeconds(Date date, Integer seconds) {
+        this.calendario = Calendar.getInstance();
+        calendario.setTime(date);
+        calendario.add(Calendar.SECOND, seconds);
+        this.formato = "HH:mm:ss";
+        this.dateFormat = new SimpleDateFormat(this.formato);
+        this.dateFormat.setTimeZone(calendario.getTimeZone());
+        this.currentTime = dateFormat.format(calendario.getTime());
+        String[] time = this.currentTime.split ( ":" );
+        this.horas = Integer.parseInt(time[0].trim());
+        this.minutos = Integer.parseInt(time[1].trim());
+        this.segundos = Integer.parseInt(time[2].trim());
     }
     
 }
