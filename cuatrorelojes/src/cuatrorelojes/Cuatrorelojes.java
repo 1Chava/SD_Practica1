@@ -21,15 +21,8 @@ public class Cuatrorelojes {
         // TODO code application logic here
         Ventana v = new Ventana("4 Relojes");
         v.setVisible( true );
+        v.setSize(600, 200);
         v.setDefaultCloseOperation(v.EXIT_ON_CLOSE);
-//        Reloj reloj1 = new Reloj(0);
-//        Reloj reloj2 = new Reloj(1);
-//        Reloj reloj3 = new Reloj(2);
-//        Reloj reloj4 = new Reloj(3);
-//        System.out.println(reloj1);
-//        System.out.println(reloj2);
-//        System.out.println(reloj3);
-//        System.out.println(reloj4);
     }
     
 }

@@ -6,7 +6,6 @@
 package Vista;
 
 import java.awt.Container;
-import java.awt.FlowLayout;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.JFrame;

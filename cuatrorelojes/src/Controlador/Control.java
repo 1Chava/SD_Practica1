@@ -27,8 +27,10 @@ public class Control implements ActionListener{
     
     private JTextField text;
     private Timer timer;
+    private Reloj reloj;
     
     public Control(JTextField text){
+        this.reloj = new Reloj(0);
         this.text = text;
         startTimer();
     }
@@ -43,13 +45,16 @@ public class Control implements ActionListener{
                 }else{
                     startTimer();
                 }
+            }else if(quien == "Mas"){
+                this.reloj.setVel(1);
+                cancelTimer();
+                startTimer();
             }else{
-                Reloj reloj = new Reloj(0);
                 String hora = this.text.getText();
                 DateFormat sdf = new SimpleDateFormat("HH:mm:ss");
                 Date date = sdf.parse(hora);
-                reloj.addSeconds(date, 1);
-                this.text.setText(reloj.toString());
+                this.reloj.addSeconds(date, 1);
+                this.text.setText(this.reloj.toString());
             }
         } catch (ParseException ex) {
             Logger.getLogger(Control.class.getName()).log(Level.SEVERE, null, ex);
@@ -61,7 +66,7 @@ public class Control implements ActionListener{
     }
     
     public void startTimer(){
-        this.timer = new Timer(1000, this);
+        this.timer = new Timer(this.reloj.getVel()*1000, this);
         this.timer.start();
     }
            

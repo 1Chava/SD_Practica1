@@ -19,6 +19,7 @@ public class PanelVentana extends JPanel{
     
     private JTextField[] relojes;
     private JButton[] botones;
+    private JButton[] mas;
     private Control[] controles;
     
     public PanelVentana(){
@@ -29,6 +30,7 @@ public class PanelVentana extends JPanel{
         setLayout(null);
         this.relojes = new JTextField[4];
         this.botones = new JButton[4];
+        this.mas = new JButton[4];
         this.controles = new Control[4];
         int x = 10;
         int y = 10;
@@ -48,6 +50,13 @@ public class PanelVentana extends JPanel{
             add(botones[n]);
             botones[n].setBounds(x + 200, y + (n * incY), ancho, alto);
             botones[n].addActionListener(controles[n]);
+        }
+        
+        for (int n = 0; n < 4; n++) {
+            mas[n] = new JButton("Mas");
+            add(mas[n]);
+            mas[n].setBounds(x + 400, y + (n * incY), ancho, alto);
+            mas[n].addActionListener(controles[n]);
         }
         
     }

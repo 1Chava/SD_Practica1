@@ -13,10 +13,6 @@ import java.util.GregorianCalendar;
 import java.util.TimeZone;
 import java.util.Timer;
 
-/**
- *
- * @author chava
- */
 public class Reloj {
     private int horas;
     private int minutos;
@@ -27,6 +23,7 @@ public class Reloj {
     private DateFormat dateFormat;
     private String currentTime;
     private String[] zonas = {"America/Mexico_City", "Europe/London", "Asia/Tokyo", "Atlantic/Reykjavik"};
+    private int vel =  1;
     
     public Reloj(int zona) {
         this.zonahoraria = TimeZone.getTimeZone(zonas[zona]);
@@ -63,6 +60,14 @@ public class Reloj {
 
     public void setSegundos(int segundos) {
         this.segundos = segundos;
+    }
+    
+    public int getVel(){
+        return this.vel;
+    }
+    
+    public void setVel(int tiempo){
+         this.vel = this.vel + tiempo;
     }
 
     @Override
